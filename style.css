@@ -1,0 +1,87 @@
+/* =========================================================
+   style.css  ·  Estilos compartidos por todas las páginas
+   ========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+:root{
+  --fondo:#1e1f21;
+  --barra:#2c2d30;
+  --texto:#e9ebe4;
+  --suave:#a9aea0;
+  --lima:#a8d63c;
+  --lima-claro:#c3e86a;
+  --oscuro:#1d2a0a;
+  --fuente:'Montserrat',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--fuente);background:var(--fondo);color:var(--texto);line-height:1.7;font-size:16px}
+img{display:block;max-width:100%}
+a{color:inherit}
+
+/* ---------- MENÚ EN COMÚN ---------- */
+.menu{background:var(--barra);position:sticky;top:0;z-index:10}
+.menu ul{list-style:none;display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap;padding:.9rem 1rem}
+.menu a{
+  display:block;text-decoration:none;color:#fff;font-weight:500;
+  padding:.65rem 1.3rem;border-radius:6px;transition:background .2s,color .2s;
+}
+.menu a:hover{background:rgba(255,255,255,.12)}
+.menu a.activo{background:var(--lima);color:var(--oscuro)}
+
+/* ---------- FRANJA VERDE DE TÍTULO ---------- */
+.franja{
+  background:linear-gradient(90deg,var(--lima-claro),var(--lima));
+  color:var(--oscuro);text-transform:uppercase;letter-spacing:.14em;font-weight:500;
+  padding:1.6rem clamp(1rem,6vw,5rem);font-size:1.05rem;
+}
+.franja span{margin-right:1.5rem}
+
+/* ---------- PORTADA (solo index) ---------- */
+.portada{
+  min-height:68vh;display:flex;align-items:flex-end;
+  background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(20,21,22,.9)),url('img/arbol.jpg') center 35%/cover no-repeat;
+  padding:clamp(1.5rem,6vw,5rem);
+}
+.portada h1{font-size:clamp(2.4rem,8vw,5rem);line-height:1.05;font-weight:700}
+.portada p{margin-top:.8rem;font-size:1.2rem;color:var(--lima-claro)}
+
+/* ---------- CONTENIDO ---------- */
+.contenido{width:min(1000px,100%);margin:0 auto;padding:clamp(2rem,6vw,4rem) clamp(1.25rem,5vw,2rem) 4rem}
+.contenido h2{font-size:1.7rem;font-weight:600;color:var(--lima);margin:2.6rem 0 .9rem}
+.contenido h2:first-child{margin-top:0}
+.contenido p{max-width:68ch;margin-bottom:1rem}
+.contenido strong{color:var(--lima-claro)}
+
+figure{margin:2rem 0}
+figcaption{color:var(--suave);font-size:.9rem;margin-top:.6rem}
+.fotos{display:grid;gap:1rem;align-items:end}
+.fotos img{width:100%;border-radius:8px;object-fit:cover}
+.fotos.dos{grid-template-columns:1fr 1fr}
+.fotos.dos img{aspect-ratio:3/4}
+.fotos.asim{grid-template-columns:1.35fr 1fr}
+.fotos.centro{grid-template-columns:minmax(0,340px);justify-content:center}
+.fotos.centro img{aspect-ratio:3/4}
+
+.cita{border-left:4px solid var(--lima);padding:.4rem 0 .4rem 1.2rem;margin:2.5rem 0 0;max-width:60ch;color:var(--texto);font-style:italic}
+.cita span{display:block;margin-top:.6rem;font-style:normal;font-size:.9rem;color:var(--suave)}
+
+/* ---------- OBJETIVOS (tarjetas por plazo) ---------- */
+.plazos{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.plazo{background:var(--barra);border-top:4px solid var(--lima);border-radius:8px;padding:1.3rem}
+.plazo h3{font-size:1.15rem;font-weight:600}
+.plazo h3 small{display:block;color:var(--suave);font-weight:400;font-size:.85rem;margin-bottom:.8rem}
+ul.lista{margin:.6rem 0 0 1.1rem}
+ul.lista li{margin-bottom:.6rem}
+ul.lista li::marker{color:var(--lima)}
+
+/* ---------- BOTONES ---------- */
+.botones{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+.boton{display:inline-block;text-decoration:none;font-weight:600;background:var(--lima);color:var(--oscuro);padding:.8rem 1.6rem;border-radius:6px;transition:background .2s}
+.boton:hover{background:var(--lima-claro)}
+
+footer{text-align:center;color:var(--suave);font-size:.85rem;padding:1.5rem;border-top:1px solid #333}
+
+@media (max-width:820px){
+  .plazos{grid-template-columns:1fr}
+  .fotos.asim{grid-template-columns:1fr}
+}
